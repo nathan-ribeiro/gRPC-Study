@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "com.communication.gRPC.gRPC.service";
+option java_outer_classname = "NameServiceProto";
+
+service NameService {
+  rpc GetName (NameRequest) returns (NameResponse) {}
+}
+
+message NameRequest {}
+
+message NameResponse {
+  string name = 1;
+}

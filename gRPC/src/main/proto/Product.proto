@@ -1,0 +1,21 @@
+syntax = "proto3";
+  
+option java_package = "com.communication.gRPC.gRPC.service";
+option java_outer_classname = "ProductProto";
+
+service ProductService {
+  rpc saveProduct (ProductRequest) returns (ProductResponse); 
+  rpc saveProducts (ProductRequest) returns (ProductResponse);
+}
+
+// Request message
+message ProductRequest {
+  string name = 1;
+  double price = 2;
+  int32 quantity = 3;
+}
+
+// Response message
+  message ProductResponse {
+  string message = 1;
+}

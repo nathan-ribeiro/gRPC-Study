@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=userStudy
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=product
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - postgres_network
+
+networks:
+  postgres_network:
