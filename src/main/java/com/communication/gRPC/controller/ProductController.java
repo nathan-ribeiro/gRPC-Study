@@ -1,7 +1,7 @@
-package com.communication.gRPC.REST.RestController;
+package com.communication.gRPC.controller;
 
-import com.communication.gRPC.REST.Entity.Product;
-import com.communication.gRPC.REST.repository.ProductRepository;
+import com.communication.gRPC.entity.Product;
+import com.communication.gRPC.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,27 +29,6 @@ public class ProductController {
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productRepository.save(product);
-    }
-
-    @PostMapping(value = "/list")
-    public String createProducts(@RequestBody Product product) {
-        List<Product> productsToSave = new ArrayList<>();
-
-        for (int i = 0; i < 15000; i++) {
-            Product newProduct = new Product();
-
-            String url = "http://localhost:1080/api/test";
-            String response = restTemplate.getForObject(url, String.class);
-
-            newProduct.setName(response);
-            newProduct.setQuantity(product.getQuantity() + i);
-            newProduct.setPrice(product.getPrice());
-            productsToSave.add(newProduct);
-        }
-
-        productRepository.saveAll(productsToSave); // Salva todos os produtos de uma vez
-
-        return "1000 novos produtos foram salvos!";
     }
 
     @DeleteMapping

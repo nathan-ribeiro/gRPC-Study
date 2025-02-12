@@ -1,4 +1,4 @@
-package com.communication.gRPC.REST.config;
+package com.communication.gRPC.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
