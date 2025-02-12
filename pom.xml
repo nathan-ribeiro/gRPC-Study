@@ -24,6 +24,10 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<grpc.version>1.68.0</grpc.version> <!-- Alinhando a versão do gRPC -->
 		<grpc.spring.boot.version>3.1.0.RELEASE</grpc.spring.boot.version> <!-- Versão mais recente -->
+		<sonar.exclusions>
+			**/repository/**,
+			src/main/java/com/communication/gRPC/config/RestConfig.java
+		</sonar.exclusions>
 	</properties>
 
 	<dependencies>
